@@ -7,6 +7,7 @@
 #define GB28181_DEV_UTILS_H_
 
 #include <stdint.h>
+
 #include <string>
 
 namespace gb28181 {
@@ -72,20 +73,21 @@ uint16_t Ntohs(uint16_t netshort);
  * @brief 日志宏定义
  */
 #ifdef DEBUG
-#define LOG_DEBUG(fmt, ...) \
-  fprintf(stderr, "[DEBUG] %s:%d " fmt "\n", __FILE__, __LINE__, ##__VA_ARGS__)
+#define LOG_DEBUG(fmt, ...)                                        \
+    fprintf(stderr, "[DEBUG] %s:%d " fmt "\n", __FILE__, __LINE__, \
+            ##__VA_ARGS__)
 #else
 #define LOG_DEBUG(...)
 #endif
 
-#define LOG_INFO(fmt, ...) \
-  fprintf(stderr, "[INFO] " fmt "\n", ##__VA_ARGS__)
+#define LOG_INFO(fmt, ...) fprintf(stderr, "[INFO] " fmt "\n", ##__VA_ARGS__)
 
 #define LOG_WARN(fmt, ...) \
-  fprintf(stderr, "[WARN] %s:%d " fmt "\n", __FILE__, __LINE__, ##__VA_ARGS__)
+    fprintf(stderr, "[WARN] %s:%d " fmt "\n", __FILE__, __LINE__, ##__VA_ARGS__)
 
-#define LOG_ERROR(fmt, ...) \
-  fprintf(stderr, "[ERROR] %s:%d " fmt "\n", __FILE__, __LINE__, ##__VA_ARGS__)
+#define LOG_ERROR(fmt, ...)                                        \
+    fprintf(stderr, "[ERROR] %s:%d " fmt "\n", __FILE__, __LINE__, \
+            ##__VA_ARGS__)
 
 }  // namespace utils
 }  // namespace gb28181
